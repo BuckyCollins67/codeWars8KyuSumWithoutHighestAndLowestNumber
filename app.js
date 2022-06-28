@@ -37,5 +37,34 @@
 // ------------------------------------------------------------
 
 
-// Test case
+function sumArray(array) {
+    let givenArray = array //Take an array, and give it a name.
+    
+    if (givenArray == null){
+        return 0
+      } else if (givenArray.length == 0 || givenArray.length == 1 || givenArray.length == 2) {
+        return 0        // get rid of all the cases that won't work
+      } else {
+        let lowestToHighest = givenArray.sort((a, b) => a - b) //Sort the array in numerical order
+        console.log(`Here is your sorted array: ${lowestToHighest}`) //console log to see if it sorted correctly
+        lowestToHighest.shift()  //get rid of the first element
+        lowestToHighest.pop()    //get rid of the last element
+        const initialValue = 0;  //set an empty value
+        const sumWithInitial = lowestToHighest.reduce(  //add up all the elements in the array
+          (previousValue, currentValue) => previousValue + currentValue,
+          initialValue
+          )
+        console.log(sumWithInitial) //console log the sum
+        return sumWithInitial //return the sum without the lowest and highest value!
+      }
+      
+    }
+
+
+sumArray([9,8,7,6,5,4,3,2,1]) //should return 35 and it does!!!
+// 
+// 
+// Make a new array that has all of the elements from the old array, with the exception of the first and last element.
+// With that new array, get the sum of all the elements and return it.
+
 
